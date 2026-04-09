@@ -1,3 +1,9 @@
+extraction: https://github.com/altps3/fail0verflow-PS3-tools
+pup unpack the update file
+untar update_files.tar
+pkg unpack CORE_OS_PACKAGE.pkg
+content = ROS
+
 Nor patcher ros is aligned, for example first and second file have a 8 bytes (offs1+size == offs2-8bytes) gap so they are aligned.
 Nofsm patcher is using a tool to regenerate patches as the file are sorted differently 
 
