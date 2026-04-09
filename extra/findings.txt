@@ -1,0 +1,128 @@
+Nor patcher ros is aligned, for example first and second file have a 8 bytes (offs1+size == offs2-8bytes) gap so they are aligned.
+Nofsm patcher is using a tool to regenerate patches as the file are sorted differently 
+
+OFW FILE LIST:
+
+Entry 0: name=creserved_0, offset=1216, size=262144
+Entry 1: name=sdk_version, offset=263360, size=8
+Entry 2: name=spu_pkg_rvk_verifier.self, offset=263368, size=64332
+Entry 3: name=spu_token_processor.self, offset=327700, size=51504
+Entry 4: name=spu_utoken_processor.self, offset=379204, size=25552
+Entry 5: name=sc_iso.self, offset=404756, size=119512
+Entry 6: name=aim_spu_module.self, offset=524268, size=17048
+Entry 7: name=spp_verifier.self, offset=541316, size=55280
+Entry 8: name=mc_iso_spu_module.self, offset=596596, size=32908
+Entry 9: name=me_iso_spu_module.self, offset=629504, size=34960
+Entry 10: name=sv_iso_spu_module.self, offset=664464, size=91936
+Entry 11: name=sb_iso_spu_module.self, offset=756400, size=24456
+Entry 12: name=me_iso_for_ps2emu.self, offset=780856, size=34960
+Entry 13: name=sv_iso_for_ps2emu.self, offset=815816, size=91936
+Entry 14: name=default.spp, offset=907752, size=10144
+Entry 15: name=lv1.self, offset=918016, size=1280128
+Entry 16: name=lv0, offset=2198144, size=947712
+Entry 17: name=lv0.2, offset=3145856, size=1280
+Entry 18: name=lv2_kernel.self, offset=3147136, size=1586440
+Entry 19: name=eurus_fw.bin, offset=4733576, size=462740
+Entry 20: name=emer_init.self, offset=5196316, size=555072
+Entry 21: name=hdd_copy.self, offset=5751388, size=418528
+Entry 22: name=manu_info_spu_module.self, offset=6169916, size=4776
+Entry 23: name=prog.srvk, offset=6174692, size=736
+Entry 24: name=pkg.srvk, offset=6175428, size=576
+
+OFW vs NOFSM
+
+default.spp differs with: -4
+emer_init.self differs with: -3
+lv0 differs with: -3
+lv1.self differs with: -3
+lv2_kernel.self differs with: -3
+sb_iso_spu_module.self differs with: -3
+spp_verifier.self differs with: -3
+spu_pkg_rvk_verifier.self differs with: -3
+spu_token_processor.self differs with: -3
+
+NOFSM vs EVILNAT
+
+aim_spu_module.self differs with: -3
+hdd_copy.self differs with: -3
+lv2_kernel.self differs with: -3
+manu_info_spu_module.self differs with: -3
+mc_iso_spu_module.self differs with: -3
+me_iso_for_ps2emu.self differs with: -3
+me_iso_spu_module.self differs with: -3
+sc_iso.self differs with: -3
+spu_utoken_processor.self differs with: -3
+sv_iso_for_ps2emu.self differs with: -3
+sv_iso_spu_module.self differs with: -3
+
+OFW vs EVILNAT
+
+aim_spu_module.self differs with: -3
+default.spp differs with: -4
+emer_init.self differs with: -3
+hdd_copy.self differs with: -3
+lv0 differs with: -3
+lv1.self differs with: -3
+lv2_kernel.self differs with: -3
+manu_info_spu_module.self differs with: -3
+mc_iso_spu_module.self differs with: -3
+me_iso_for_ps2emu.self differs with: -3
+me_iso_spu_module.self differs with: -3
+sb_iso_spu_module.self differs with: -3
+sc_iso.self differs with: -3
+spp_verifier.self differs with: -3
+spu_pkg_rvk_verifier.self differs with: -3
+spu_token_processor.self differs with: -3
+spu_utoken_processor.self differs with: -3
+sv_iso_for_ps2emu.self differs with: -3
+sv_iso_spu_module.self differs with: -3
+
+
+EVILNAT SAME WITH NOFSM BUT DIFFER FROM OFW:
+
+default.spp
+emer_init.self
+lv0
+lv1.self
+sb_iso_spu_module.self
+spp_verifier.self
+spu_pkg_rvk_verifier.self
+spu_token_processor.self
+
+DIFFS BETWEEN EVILNAT AND NOFSM:
+
+lv2_kernel.self
+
+In conclusion:
+lv2_kernel.self is the only file I’m missing to build a nofsm patch
+
+
+DIFFS BETWEEN OFW 4.92 AND OFW 4.93:
+
+aim_spu_module.self differs with: -4
+default.spp differs with: -4
+emer_init.self differs with: -4
+hdd_copy.self differs with: -4
+lv0 differs with: -4
+lv0.2 differs with: -4
+lv1.self differs with: -3
+lv2_kernel.self differs with: -4
+manu_info_spu_module.self differs with: -4
+mc_iso_spu_module.self differs with: -4
+me_iso_for_ps2emu.self differs with: -4
+me_iso_spu_module.self differs with: -4
+pkg.srvk differs with: -4
+prog.srvk differs with: -4
+sb_iso_spu_module.self differs with: -4
+sc_iso.self differs with: -4
+sdk_version differs with: -4
+spp_verifier.self differs with: -4
+spu_pkg_rvk_verifier.self differs with: -4
+spu_token_processor.self differs with: -4
+spu_utoken_processor.self differs with: -4
+sv_iso_for_ps2emu.self differs with: -4
+sv_iso_spu_module.self differs with: -4
+
+Same: 2
+
+lv2_kernel.self got recompiled with same size but different content
