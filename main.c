@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    const FileData result = loadFile(argv[0]);
+    const FileData result = loadFile(argv[1]);
     FileData data = result;
     if (data.ptr == NULL) return 1;
     const char headerless = isHeaderless(&data);
